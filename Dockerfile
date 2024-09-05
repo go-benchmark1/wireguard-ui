@@ -56,7 +56,7 @@ RUN cp -r /build/custom/ assets/
 RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -ldflags="-X 'main.appVersion=${APP_VERSION}' -X 'main.buildTime=${BUILD_TIME}' -X 'main.gitCommit=${GIT_COMMIT}'" -a -o wg-ui .
 
 # Release stage
-FROM alpine:3.19
+FROM alpine:3.20
 
 RUN addgroup -S wgui && \
     adduser -S -D -G wgui wgui
